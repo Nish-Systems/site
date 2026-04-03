@@ -11,7 +11,7 @@ export default function Footer() {
       backgroundColor: '#fafafa',
       textAlign: 'center',
       color: '#666',
-      fontFamily: 'JetBrains Mono',
+      fontFamily: 'JetBrains Mono, monospace',
     }}>
       <p style={{ margin: 0, fontWeight: 600 }}>&copy; {currentYear} Niche Systems LLC</p>
       <p style={{ margin: '0.5rem 0 0 0', fontSize: '0.9rem' }}>

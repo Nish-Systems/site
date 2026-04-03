@@ -3,21 +3,83 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Home | NicSys Consulting">
-	<main style="display: flex; justify-content: center; align-items: center; min-height: 80vh; font-family: 'JetBrains Mono', monospace;">
-		<div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
-			<div style="display: flex; align-items: center; font-size: 4rem; font-weight: 700;" class="text-foreground">
-				<span>NICHE</span>
-				<img 
-					src="/logo_grey.svg" 
-					alt="NS" 
-					width="170px"
-					style={{ margin: '2rem' }}
-				/>
-				<span>SYSTEMS</span>
-			</div>
-			<p style="font-size: 1rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase;" class="text-foreground">
-				Software Engineering Consulting & Contracting
-			</p>
-		</div>
-	</main>
+  <main style="display: flex; justify-content: center; align-items: center; min-height: 80vh; font-family: 'JetBrains Mono', monospace;">
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+      <div style="display: inline-flex; flex-direction: column; align-items: center; gap: 1rem;">
+        <div style="display: flex; align-items: center; font-size: 4rem; font-weight: 700;" class="text-foreground">
+          <span>NICHE</span>
+          <img 
+            src="/logo_grey.svg" 
+            alt="NS" 
+            width="170px"
+            style="margin: 2rem;"
+          />
+          <span>SYSTEMS</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 1rem; align-self: flex-start;">
+          <p
+            id="line1"
+            data-text="> We are a Software Engineering Consulting & Contracting Firm."
+            style="font-size: 1rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; text-align: left; min-height: 1.5em;"
+            class="text-foreground typewriter"
+          ></p>
+          <p
+            id="line2"
+            data-text="> We build software systems for research institutions and engineering clients."
+            style="font-size: 1rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; text-align: left; min-height: 1.5em;"
+            class="text-foreground typewriter"
+          ></p>
+        </div>
+      </div>
+    </div>
+  </main>
 </Layout>
+
+<style>
+  .typewriter::after {
+    content: '▮';
+    display: inline-block;
+    animation: blink 0.75s step-end infinite;
+    margin-left: 2px;
+  }
+
+  .typewriter.done::after {
+    display: none;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+  }
+</style>
+
+<script>
+  function typeText(element: HTMLElement, text: string, speed = 30): Promise<void> {
+    return new Promise((resolve) => {
+      let i = 0;
+      const interval = setInterval(() => {
+        element.textContent = text.slice(0, i + 1);
+        i++;
+        if (i >= text.length) {
+          clearInterval(interval);
+          resolve();
+        }
+      }, speed);
+    });
+  }
+
+  async function runTypewriterSequence() {
+    const line1 = document.getElementById('line1') as HTMLElement;
+    const line2 = document.getElementById('line2') as HTMLElement;
+
+    await typeText(line1, line1.dataset.text ?? '');
+    line1.classList.add('done'); // hide cursor on line 1
+
+    await new Promise(r => setTimeout(r, 200)); // brief pause between lines
+
+    await typeText(line2, line2.dataset.text ?? '');
+    line2.classList.add('done'); // hide cursor after finishing
+  }
+
+  runTypewriterSequence();
+</script>
