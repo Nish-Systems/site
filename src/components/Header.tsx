@@ -20,7 +20,7 @@ export default function Header() {
         }}>
           <span>NICHE</span>
           <img 
-            src="logo_grey.svg" 
+            src="/logo_grey.svg" 
             alt="Logo" 
             style={{ 
               height: '3.0rem', // Match your font size
