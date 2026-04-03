@@ -3,3 +3,15 @@
 @theme {
   --color-gray-800: #1e1e1e;
 }
+
+@media screen and (min-width: 600px) {
+  .mobile-only {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .desktop-only {
+    display: block;
+  }
+}

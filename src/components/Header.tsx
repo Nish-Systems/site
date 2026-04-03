@@ -9,7 +9,7 @@ export default function Header() {
       padding: '1.0rem 2rem', 
       borderBottom: '1px solid #eaeaea',
       fontFamily: 'JetBrains Mono'
-    }} className="bg-white dark:bg-gray-900">
+    }}>
       <div style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>
         <a href="/" style={{ 
           textDecoration: 'none', 
