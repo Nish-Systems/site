@@ -12,31 +12,31 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" style="font-family: 'JetBrains Mono', monospace;" class="bg-background">
+<html lang="en" style="font-family: 'JetBrains Mono', monospace;">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<title>{title}</title>
-		<script is:inline>
+		<!-- <script is:inline>
 			const theme =
 				localStorage.getItem("theme") ??
 				(window.matchMedia("(prefers-color-scheme: dark)").matches
 					? "dark"
 					: "light");
 			document.documentElement.setAttribute("data-theme", theme);
-		</script>
+		</script> -->
 	</head>
 	<body
 		style="margin: 0; font-family: system-ui, sans-serif; display: flex; 
     flex-direction: column; 
-    min-height: 100vh;" class="bg-background"
+    min-height: 100vh; dark:bg-gray-800;"
 	>
 		<Header client:load />
 		<div style="flex: 1;">
 			<slot />
 		</div>
 		<Footer client:load />
-		<ThemeToggle client:load />
+		<!-- <ThemeToggle client:load /> -->
 	</body>
 </html>

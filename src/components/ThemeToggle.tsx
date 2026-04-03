@@ -8,15 +8,20 @@ export default function ThemeToggle() {
 
   useEffect(() => {
     // Read the theme already set by the inline <head> script
-    const current =
-      (document.documentElement.getAttribute("data-theme") as Theme) ?? "light";
+    const current: Theme = document.documentElement.classList.contains("dark")
+      ? "dark"
+      : "light";
     setTheme(current);
     setMounted(true);
   }, []);
 
   const toggle = () => {
     const next: Theme = theme === "dark" ? "light" : "dark";
-    document.documentElement.setAttribute("data-theme", next);
+    if (next === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
     localStorage.setItem("theme", next);
     setTheme(next);
   };
