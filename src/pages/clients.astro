@@ -1,0 +1,58 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+interface Client {
+  organization: string;
+  specificClient: string;
+  logoUrl: string;
+  description: string;
+}
+
+const clients: Client[] = [
+  {
+    organization: "University of Texas at Austin",
+    specificClient: "Department of Government",
+    logoUrl: "https://ui-avatars.com/api/?name=UT+Gov&background=bf5700&color=fff",
+    description: "Built a secure portal for managing departmental resources and streamlining student-faculty communications."
+  },
+  {
+    organization: "University of Texas at Austin",
+    specificClient: "Department of Psychology",
+    logoUrl: "https://ui-avatars.com/api/?name=UT+Austin&background=bf5700&color=fff",
+    description: "Developed custom data visualization tools and automated data collection pipelines for psychological research studies."
+  },
+  	{
+    organization: "Viracocha LLC",
+    specificClient: "Office of the CEO",
+    logoUrl: "https://ui-avatars.com/api/?name=Viracocha&background=333&color=fff",
+    description: "Consulted on digital transformation strategies and implemented a custom ERP solution to manage global logistics."
+  },
+];
+---
+
+<Layout title="Clients | NicSys Consulting">
+	<main style="padding: 4rem 2rem; max-width: 1000px; margin: 0 auto;">
+		<h1 style="font-size: 2.5rem; margin-bottom: 3rem; text-align: center; font-family: 'JetBrains Mono', monospace;">Our Clients</h1>
+		
+		<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 2rem;">
+			{clients.map((client) => (
+				<div style="border: 1px solid #eaeaea; border-radius: 12px; padding: 2rem; display: flex; flex-direction: column; gap: 1.5rem; background: #fff; transition: transform 0.2s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.03);">
+					<div style="display: flex; align-items: center; gap: 1rem;">
+						<img 
+							src={client.logoUrl} 
+							alt={`${client.organization} Logo`} 
+							style="width: 60px; height: 60px; border-radius: 8px;"
+						/>
+						<div>
+							<h2 style="font-size: 1.2rem; margin: 0; color: #111;">{client.organization}</h2>
+							<p style="font-size: 1rem; margin: 0; color: #0066cc; font-weight: 600;">{client.specificClient}</p>
+						</div>
+					</div>
+					{/* <p style="margin: 0; line-height: 1.6; color: #444; font-size: 1rem;">
+						{client.description}
+					</p> */}
+				</div>
+			))}
+		</div>
+	</main>
+</Layout>

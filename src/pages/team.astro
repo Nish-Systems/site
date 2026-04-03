@@ -1,0 +1,159 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// 1. Define the TypeScript interface for our team members
+interface TeamMember {
+  name: string;
+  title: string;
+  description: string;
+  imageUrl: string;
+}
+
+// 2. Create the data arrays
+const coreTeam: TeamMember[] = [
+  {
+    name: "Rishabh Bector",
+    title: "Lead Software Engineer",
+    description:
+      "Rishabh, with over five years of professional experience and over a decade in software, specializes in designing systems architecture and leading high-performing engineering teams.",
+    imageUrl: "../public/team/rishabh.png",
+  },
+  // {
+  //   name: "Oz Sahhh",
+  //   title: "Civil Engineering",
+  //   description: "Oz is a civil engineer with expertise in structural analysis and sustainable design, bringing a unique perspective to our engineering challenges.",
+  //   imageUrl: "https://ui-avatars.com/api/?name=Oz+Sahhh&background=2196F3&color=fff&size=150"
+  // },
+  {
+    name: "Mitchell Jones",
+    title: "Mechanical Engineer",
+    description:
+      "Mitchell is a mechanical engineer bringing a strong foundation in engineering principles to our projects. Applying rigorous mechanical principles, he ensures that our solutions operate flawlessly within the constraints of the physical world.",
+    imageUrl: "../public/team/mitchell.png",
+  },
+  /*{
+    name: "Kevin Wen",
+    title: "Applied Math",
+    description:
+      "Kevin is an applied mathematician with expertise in algorithm design and optimization, contributing to our development of efficient computational solutions for complex problems.",
+    imageUrl: "../public/team/kevin.png",
+  },*/
+  {
+    name: "Chhavinder Singh",
+    title: "Molecular Biologist & Chemical Engineer",
+    description:
+      "Chauvinder is a molecular biologist and data scientist who bridges the gap between biological research and computational analysis, helping us build robust data pipelines for scientific applications.",
+    imageUrl:
+      "https://ui-avatars.com/api/?name=Chauvinder+Singh&background=4CAF50&color=fff&size=150",
+  },
+];
+
+const advisors: TeamMember[] = [
+  // {
+  //   name: "Chung-Ting Huang",
+  //   title: "Software Architecture Advisor",
+  //   description: "Chung-Ting has over 20 years of experience in software engineering and architecture, having led the design of scalable systems at the Fortune-500 level.",
+  //   imageUrl: "https://ui-avatars.com/api/?name=Sarah+Jenkins&background=9C27B0&color=fff&size=150"
+  // },
+  {
+    name: "Suresh Niruala",
+    title: "Engineering Advisor",
+    description:
+      "Suresh is a professional water scientist with over 15 years of experience in water, civil and environmental engineering, helping us design and implement sustainable infrastructure solutions for our clients.",
+    imageUrl: "../public/team/suresh.png",
+  },
+  // {
+  //   name: "Alexandra Wallayce",
+  //   title: "Civil Engineering Advisor",
+  //   description: "Alexandra brings 15 years of civil engineering experience, helping us design and implement robust infrastructure solutions for our clients.",
+  //   imageUrl: "https://ui-avatars.com/api/?name=Alexandra+Wallayce&background=FF9800&color=fff&size=150"
+  // }
+
+
+  //. style="padding: 4rem 2rem; max-width: 900px; margin: 0 auto; font-family: 'JetBrains Mono', monospace;"
+];
+---
+
+<Layout title="Our Team | NicSys Consulting">
+  
+  <main style="padding: 4rem 2rem; max-width: 900px; margin: 0 auto; font-family: 'JetBrains Mono', monospace;">
+    <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem; text-align: center;">
+      Meet the Team.
+    </h1>
+    <p
+      style="font-size: 1.2rem; line-height: 1.6; color: #555; text-align: center; margin-bottom: 4rem;"
+    >
+      <!-- We’re focused on building software that our clients can apply to
+      cutting-edge research & real-world engineering. In addition to our core
+      team, we have a diverse set of professional advisors who help us tackle
+      the complex challenges our clients face. -->
+      Our diverse set of engineers only consult where relevant. We regularly work on pure software projects which involve only our software engineers, but we also work on projects that require expertise in other fields. In those cases, we bring in our advisors to consult on the project and help us build the best possible solution for our clients.
+    </p>
+
+    {/* Core Team Section */}
+    <section style="margin-bottom: 5rem;">
+      <h2
+        style="font-size: 2rem; margin-bottom: 2rem; border-bottom: 2px solid #eaeaea; padding-bottom: 0.5rem;"
+      >
+        Core Team
+      </h2>
+      <div style="display: flex; flex-direction: column; gap: 2rem;">
+        {
+          coreTeam.map((member) => (
+            <div style="display: flex; gap: 2rem; align-items: center; background: #fff; padding: 1.5rem; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+              <img
+                src={member.imageUrl}
+                alt={`Photo of ${member.name}`}
+                style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; flex-shrink: 0;"
+              />
+              <div>
+                <h3 style="margin: 0 0 0.25rem 0; font-size: 1.5rem; color: #111;">
+                  {member.name}
+                </h3>
+                <p style="margin: 0 0 1rem 0; font-weight: 600; color: #0066cc;">
+                  {member.title}
+                </p>
+                <p style="margin: 0; line-height: 1.6; color: #444;">
+                  {member.description}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    {/* Advisors Section */}
+    <section>
+      <h2
+        style="font-size: 2rem; margin-bottom: 2rem; border-bottom: 2px solid #eaeaea; padding-bottom: 0.5rem;"
+      >
+        Advisors
+      </h2>
+      <div style="display: flex; flex-direction: column; gap: 2rem;">
+        {
+          advisors.map((advisor) => (
+            <div style="display: flex; gap: 2rem; align-items: center; background: #fafafa; padding: 1.5rem; border: 1px solid #eaeaea; border-radius: 12px;">
+              <img
+                src={advisor.imageUrl}
+                alt={`Photo of ${advisor.name}`}
+                style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; flex-shrink: 0;"
+              />
+              <div>
+                <h3 style="margin: 0 0 0.25rem 0; font-size: 1.3rem; color: #111;">
+                  {advisor.name}
+                </h3>
+                <p style="margin: 0 0 1rem 0; font-weight: 600; color: #555;">
+                  {advisor.title}
+                </p>
+                <p style="margin: 0; line-height: 1.6; color: #444;">
+                  {advisor.description}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+  </main>
+</Layout>

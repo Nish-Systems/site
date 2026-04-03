@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contact | NicSys Consulting">
+    <main style="display: flex; justify-content: center; align-items: center; min-height: 70vh; padding: 2rem; font-family: 'JetBrains Mono', monospace;">
+        <div style="text-align: center; max-width: 600px; width: 100%;">
+            <h1 style="font-size: 3rem; margin-bottom: 1rem; font-weight: 700;">Get in Touch.</h1>
+            <p style="font-size: 1.1rem; color: #555; margin-bottom: 3rem; line-height: 1.6;">
+                Have a project that requires a blend of software expertise and domain knowledge? We'd love to hear from you.
+            </p>
+            
+            <div style="background: #fafafa; border: 1px solid #eaeaea; padding: 2.5rem; border-radius: 16px;">
+                <p style="text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.8rem; color: #0066cc; margin-bottom: 0.5rem; font-weight: 700;">
+                    Email us at
+                </p>
+                <a 
+                    href="mailto:contact@nicsys.io" 
+                    style="font-size: 1.5rem; color: #111; text-decoration: none; border-bottom: 2px solid #0066cc; padding-bottom: 4px; transition: opacity 0.2s;"
+                    onmouseover="this.style.opacity='0.7'"
+                    onmouseout="this.style.opacity='1'"
+                >
+                    nichesystemsco@gmail.com
+                </a>
+            </div>
+
+            <div style="margin-top: 4rem; font-size: 0.9rem; color: #888;">
+                <p>Based in Denver, CO & working globally.</p>
+            </div>
+        </div>
+    </main>
+</Layout>
