@@ -14,18 +14,18 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="font-mono">
+<html lang="en" class="font-mono h-full">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
   </head>
-  <body class="m-0">
+  <body class="m-0 flex flex-col min-h-full">
     <Header client:load />
-    <div class="flex-1">
+    <main class="flex-1">
       <slot />
-    </div>
+    </main>
     <Footer client:load />
   </body>
 </html>
