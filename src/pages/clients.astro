@@ -1,27 +1,33 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 
 interface Client {
-  organization: string;
-  specificClient: string;
-  logoUrl: string;
-  description: string;
+	organization: string;
+	specificClient: string;
+	logoUrl: string;
 }
 
 const clients: Client[] = [
-  {
-    organization: "University of Texas at Austin",
-    specificClient: "Department of Government",
-    logoUrl: "https://ui-avatars.com/api/?name=UT+Gov&background=bf5700&color=fff",
-    description: "Built a secure portal for managing departmental resources and streamlining student-faculty communications."
-  },
-  {
-    organization: "University of Texas at Austin",
-    specificClient: "Department of Psychology",
-    logoUrl: "https://ui-avatars.com/api/?name=UT+Austin&background=bf5700&color=fff",
-    description: "Developed custom data visualization tools and automated data collection pipelines for psychological research studies."
-  },
-  	/*{
+	{
+		organization: "City of Aurora - Colorado",
+		specificClient: "Aurora Water Quality",
+		logoUrl:
+			"/clients/aurora_p.png",
+	},
+	{
+		organization: "University of Texas at Austin",
+		specificClient: "Department of Government",
+		logoUrl:
+			"/clients/government.svg",
+	},
+	{
+		organization: "University of Texas at Austin",
+		specificClient: "Department of Psychology",
+		logoUrl:
+			"/clients/psychology.svg",
+	},
+
+	/*{
     organization: "Viracocha LLC",
     specificClient: "Office of the CEO",
     logoUrl: "https://ui-avatars.com/api/?name=Viracocha&background=333&color=fff",
@@ -32,31 +38,42 @@ const clients: Client[] = [
 
 <Layout title="Niche Systems Consulting">
 	<main style="padding: 4rem 2rem; max-width: 1100px; margin: 0 auto;">
-		<h1 style="font-size: 2.5rem; margin-bottom: 3rem; text-align: center; font-family: 'JetBrains Mono', monospace;">Our Clients</h1>
+		<h1
+			style="font-size: 2.5rem; margin-bottom: 3rem; text-align: center; font-family: 'JetBrains Mono', monospace;"
+		>
+			Our Clients
+		</h1>
 		<p
-      style="font-size: 1.2rem; line-height: 1.6; color: #555; text-align: center; margin-bottom: 4rem; font-family: 'JetBrains Mono', monospace;"
-    >
-	So far, we've worked primarily with university research departments, but we're excited to take on new challenges across different industries in both the public and private sectors. Here are a few of the clients we've had the pleasure of working with:
-    </p>
-		<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 2rem;">
-			{clients.map((client) => (
-				<div style="border: 1px solid #eaeaea; border-radius: 12px; padding: 2rem; display: flex; flex-direction: column; gap: 1.5rem; background: #fff; transition: transform 0.2s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.03);">
-					<div style="display: flex; align-items: center; gap: 1rem;">
-						<img 
-							src={client.logoUrl} 
-							alt={`${client.organization} Logo`} 
-							style="width: 60px; height: 60px; border-radius: 8px;"
-						/>
-						<div>
-							<h2 style="font-size: 1.2rem; margin: 0; color: #111;">{client.organization}</h2>
-							<p style="font-size: 1rem; margin: 0; color: #0066cc; font-weight: 600;">{client.specificClient}</p>
+			style="font-size: 1.2rem; line-height: 1.6; color: #555; text-align: center; margin-bottom: 4rem; font-family: 'JetBrains Mono', monospace;"
+		>
+			We're excited to take on new challenges across different
+			industries in both the public and private sectors. So far we've had the pleasure of working with:
+		</p>
+		<div
+			style="display: grid; grid-template-columns: repeat(auto-fill, minmax(390px, 1fr)); gap: 2rem;"
+		>
+			{
+				clients.map((client) => (
+						<div style="border: 1px solid #eaeaea; border-radius: 16px; padding: 2rem; display: flex; flex-direction: column; gap: 1.25rem; background: #fff; transition: transform 0.2s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.03); min-height: 100%;">
+							<div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+							<img
+								src={client.logoUrl}
+								alt={`${client.organization} Logo`}
+									style="width: 150%; max-width: 400px; height: 180px; object-fit: contain; border-radius: 12px; background: #fff; padding: 1rem;"
+							/>
+							</div>
+							{/* <div style="text-align: center;">
+								<h2 style="font-size: 1.2rem; margin: 0; color: #111;">
+									{client.organization}
+								</h2>
+								<p style="font-size: 1rem; margin: 0; color: #0066cc; font-weight: 600;">
+									{client.specificClient}
+								</p>
+							</div> */}
 						</div>
-					</div>
-					{/* <p style="margin: 0; line-height: 1.6; color: #444; font-size: 1rem;">
-						{client.description}
-					</p> */}
-				</div>
-			))}
+				
+				))
+			}
 		</div>
 	</main>
 </Layout>

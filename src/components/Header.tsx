@@ -2,31 +2,31 @@ import React from 'react';
 
 export default function Header() {
   return (
-    <header style={{ 
-      display: 'flex', 
-      justifyContent: 'space-between', 
+    <header style={{
+      display: 'flex',
+      justifyContent: 'space-between',
       alignItems: 'center',
-      padding: '1.0rem 2rem', 
+      padding: '1.0rem 2rem',
       borderBottom: '1px solid #eaeaea',
       fontFamily: 'JetBrains Mono'
     }}>
       <div style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>
-        <a href="/" style={{ 
-          textDecoration: 'none', 
-          color: '#333', 
-          display: 'flex', 
-          alignItems: 'center', 
-          gap: '0.5rem' // Adjust this for more/less space around the logo
+        <a href="/" style={{
+          textDecoration: 'none',
+          color: '#333',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.5rem'
         }}>
           <span>NICHE</span>
-          <img 
-            src="/logo_grey.svg" 
-            alt="Logo" 
-            style={{ 
-              height: '3.0rem', // Match your font size
+          <img
+            src="/logo_grey.svg"
+            alt="Logo"
+            style={{
+              height: '3.0rem',
               width: 'auto',
               display: 'block'
-            }} 
+            }}
           />
           <span>SYSTEMS</span>
         </a>

@@ -7,7 +7,6 @@ export default function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Read the theme already set by the inline <head> script
     const current: Theme = document.documentElement.classList.contains("dark")
       ? "dark"
       : "light";

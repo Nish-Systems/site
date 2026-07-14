@@ -2,11 +2,11 @@ import React from 'react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  
+
   return (
-    <footer style={{ 
-      marginTop: '2rem', // Changed from 'auto' to a fixed margin
-      padding: '1.5rem 2rem', // Cut vertical padding in half
+    <footer style={{
+      marginTop: '2rem',
+      padding: '1.5rem 2rem',
       borderTop: '1px solid #eaeaea',
       backgroundColor: '#fafafa',
       textAlign: 'center',
